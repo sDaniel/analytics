@@ -14,7 +14,6 @@
 		'analytics:settings:domain:sample' => "Bedoelde je %s?",
 		'analytics:settings:track_actions' => "Track Elgg acties?",
 		'analytics:settings:track_events' => "Track Elgg events?",
-		'analytics:settings:track_events:warning' => "<b>WAARSCHUWING:</b> dit zorgt voor veel data naar Google Analytics",
 		'analytics:settings:flag_administrators' => "Markeer beheerders?",
 		
 	);

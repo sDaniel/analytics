@@ -1,5 +1,9 @@
 <?php 
 
+	
+
+
+
 ?>
 <script type="text/javascript" id="analytics_ajax_result">
 
@@ -8,11 +12,7 @@
 			
 			$.get("<?php echo $vars["url"]; ?>pg/analytics/ajax_success", function(data){
 				if(data){
-					var temp = document.createElement("script");
-					temp.setAttribute("type", "text/javascript");
-					temp.innerHTML = data;
-					
-					$('#analytics_ajax_result').after(temp);
+					$('#analytics_ajax_result').append(data);
 				}
 			});
 		}

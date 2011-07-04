@@ -54,7 +54,6 @@
 		<option value="no" <?php if($events != "yes") echo "selected='selected'"; ?>><?php echo elgg_echo("option:no"); ?></option>
 		<option value="yes" <?php if($events == "yes") echo "selected='selected'"; ?>><?php echo elgg_echo("option:yes"); ?></option>
 	</select>
-	<div><?php echo elgg_echo("analytics:settings:track_events:warning"); ?></div>
 </div>
 
 <div>
