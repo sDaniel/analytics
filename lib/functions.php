@@ -20,7 +20,7 @@
 		return true;
 	}
 
-	function analytics_track_event($category, $action, $label = "", $value = 0){
+	function analytics_track_event($category, $action, $label = ""){
 		
 		if(!empty($category) && !empty($action)){
 			if(!array_key_exists("analytics", $_SESSION)){
@@ -38,10 +38,6 @@
 			
 			if(!empty($label)){
 				$t_event["label"] = $label;
-			}
-			
-			if(!empty($value)){
-				$t_event["value"] = $value;
 			}
 			
 			$_SESSION["analytics"]["events"][] = $t_event;

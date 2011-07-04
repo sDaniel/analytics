@@ -39,12 +39,6 @@
 				
 				if(array_key_exists("label", $event) && !empty($event["label"])){
 					$output .= ", '" . str_replace("'", "", $event["label"]) . "'";
-				} elseif(array_key_exists("value", $event) && !empty($event["value"])){
-					$output .= ", ''";
-				}
-				
-				if(array_key_exists("value", $event) && !empty($event["value"])){
-					$output .= ", " . $event["value"];
 				}
 				
 				$output .= "]);\n";
