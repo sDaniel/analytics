@@ -4,7 +4,6 @@
 	$domain = get_plugin_setting('analyticsDomain', 'analytics');
 	$trackActions = get_plugin_setting("trackActions", "analytics");
 	$trackEvents = get_plugin_setting("trackEvents", "analytics");
-	$flagAdmins = get_plugin_setting("flagAdmins", "analytics");
 	
 	if(!empty($trackID)){
 ?>
@@ -14,9 +13,6 @@
 	_gaq.push(['_setAccount', '<?php echo $trackID; ?>']);
 	<?php if(!empty($domain)) { ?>
 	_gaq.push(['_setDomainName', '<?php echo $domain; ?>']);
-	<?php } ?>
-	<?php if($flagAdmins == "yes" && isadminloggedin()){ ?>
-	_gaq.push(['_setCustomVar', 1, 'role', 'admin', 1]);
 	<?php } ?>
 	_gaq.push(['_trackPageview']);
 
@@ -43,6 +39,12 @@
 				
 				if(array_key_exists("label", $event) && !empty($event["label"])){
 					$output .= ", '" . str_replace("'", "", $event["label"]) . "'";
+				} elseif(array_key_exists("value", $event) && !empty($event["value"])){
+					$output .= ", ''";
+				}
+				
+				if(array_key_exists("value", $event) && !empty($event["value"])){
+					$output .= ", " . $event["value"];
 				}
 				
 				$output .= "]);\n";

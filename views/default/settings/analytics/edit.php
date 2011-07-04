@@ -14,7 +14,6 @@
 	$domain = $vars['entity']->analyticsDomain;
 	$actions = $vars['entity']->trackActions;
 	$events = $vars['entity']->trackEvents;
-	$flagAdmins = $vars['entity']->flagAdmins;
 	
 	$host = $_SERVER['HTTP_HOST'];
 	$hostArray = explode(".", $host);
@@ -53,14 +52,5 @@
 	<select name="params[trackEvents]">
 		<option value="no" <?php if($events != "yes") echo "selected='selected'"; ?>><?php echo elgg_echo("option:no"); ?></option>
 		<option value="yes" <?php if($events == "yes") echo "selected='selected'"; ?>><?php echo elgg_echo("option:yes"); ?></option>
-	</select>
-	<div><?php echo elgg_echo("analytics:settings:track_events:warning"); ?></div>
-</div>
-
-<div>
-	<span><?php echo elgg_echo("analytics:settings:flag_administrators"); ?></span>
-	<select name="params[flagAdmins]">
-		<option value="no" <?php if($flagAdmins != "yes") echo "selected='selected'"; ?>><?php echo elgg_echo("option:no"); ?></option>
-		<option value="yes" <?php if($flagAdmins == "yes") echo "selected='selected'"; ?>><?php echo elgg_echo("option:yes"); ?></option>
 	</select>
 </div>
