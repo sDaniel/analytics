@@ -9,11 +9,11 @@
 	 */
 		
 	$english = array(
-		'analytics:settings:trackid' => "Google Analytics tracking ID:",
-		'analytics:settings:domain' => "For cross-domain tracking, enter the main domain here:",
-		'analytics:settings:domain:sample' => "Did you mean %s?",
-		'analytics:settings:track_actions' => "Track Elgg actions?",
-		'analytics:settings:track_events' => "Track Elgg events?",
+		'analytics:enable' => 'Enable tracking',
+		'analytics:trackid' => 'Website Tracker ID',
+		'analytics:subdomaintracking' => 'Enable subdomain tracking',
+		'analytics:domain' => 'Root domain',
+		'analytics:sample' => '(Did you mean "%s"?)',
 		
 	);
 	

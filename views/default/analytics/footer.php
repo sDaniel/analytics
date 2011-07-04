@@ -1,21 +1,34 @@
-<?php 
+<?php
+	/**
+	* Google Analytics footer extension.
+	* 
+	* @package analytics
+	* @author ColdTrick IT Solutions
+	* @copyright ColdTrick IT Solutions 2009
+	* @link http://www.coldtrick.com/
+	*/
 
+	global $CONFIG;
 	
-
-
-
+	$enabled = get_plugin_setting('analyticsEnabled', 'analytics');
+	$trackID = get_plugin_setting('analyticsSiteID', 'analytics');
+	$subDomainTracking = get_plugin_setting('analyticsSubDomainTraking', 'analytics');
+	$domain = get_plugin_setting('analyticsDomain', 'analytics');
+	
+	if($enabled == "yes"){
 ?>
-<script type="text/javascript" id="analytics_ajax_result">
-
-	$('#analytics_ajax_result').ajaxSuccess(function(event, XMLHttpRequest, ajaxOptions){
-		if(ajaxOptions.url != "<?php echo $vars["url"]; ?>pg/analytics/ajax_success"){
-			
-			$.get("<?php echo $vars["url"]; ?>pg/analytics/ajax_success", function(data){
-				if(data){
-					$('#analytics_ajax_result').append(data);
-				}
-			});
-		}
-	});
-
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
+<script type="text/javascript">
+try {
+	var pageTracker = _gat._getTracker("<?php echo $trackID; ?>");
+	<?php if($subDomainTracking == "yes") { ?>
+	pageTracker._setDomainName("<?php echo $domain; ?>");
+	<?php } ?>
+	pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+<?php } ?>
